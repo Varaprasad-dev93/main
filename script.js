@@ -17,7 +17,7 @@ function val(){
     form.style.display='none';
     img=document.getElementById('image').value;
         if(img=='blck'){
-            show.style.color='white';
+            show.style.Color='white';
         }
     body.style.background=img;
     }
