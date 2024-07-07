@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        body{
+            background-color: black;
+            min-width: 100vh;
+            overflow: hidden;
+        }
+        span{
+            position: absolute;
+            pointer-events: none;
+            padding: 10px;
+            margin:10px;
+            
+        }
+        span::before{
+            position: absolute;
+            content:'💗';
+            animation:move 1s linear forwards;
+            opacity: 0.5;
+        }
+        @keyframes move {
+            0%{
+                transform: translate(0px) rotate(0deg);
+                opacity: 0;
+            }
+            25%,80%{
+                opacity:1;
+            }
+            100%{
+                transform: translate(300px) rotate(360deg);
+                opacity: 0.5;
+            }
+        }
+    </style>
+</head>
+<body>
+</body>
+<script>
+    document.addEventListener('mousemove',function(e){
+        let body=document.querySelector('body');
+        let star=document.createElement('span');
+        body.appendChild(star);
+        let size=Math.random()*40 +'px';
+        let trans=Math.random()*360+'deg';
+        star.style.fontSize=size;
+        star.style.transform='rotate('+trans+')';
+        star.style.top=e.offsetY+'px';
+        star.style.left=e.offsetX+'px';
+        setTimeout(function(){
+            star.remove()
+        },1000);
+    })
+</script>
+</html>
